@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   <title>Bypass Mobile: Liar's Dice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 </head>
 <body ng-app="myApp">
-  <div ng-controller="GameController">
-    <!-- Current Game UI -->
-    <h4>Game ID: {{games[0]._id}}</h4>
-
-    <h4>Player hands:</h4>
-    <div ng-repeat="hand in games[0].playerHands track by $index">
-      Player {{$index}} hand: {{ hand }}
-    </div>
-
-    <h4>Actions:</h4>
-    <div ng-repeat="action in games[0].actions track by $index">
-      Player {{ action.player }} claimed there are {{ action.claimNumber }} {{ action.claimFace }}'s
-    </div>
+  <div ui-view="app.nav"></div>
+  
+  <div class="content-wrapper">
+    <div ui-view></div>
   </div>
 
+  <!-- ************* -->
+  <!-- ** SCRIPTS ** -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <!-- ANGULAR FILES -->
   <script src="app.js"></script>
+  <!-- * Controllers -->
+  <script src="controllers/GameCtrl.js"></script>
+  <script src="controllers/DashCtrl.js"></script>
+  <!-- * Services ** -->
+  <script src="services/GameplayService.js"></script>
+  <!-- ************* -->
   </body>
 </html>
