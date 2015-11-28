@@ -3,6 +3,8 @@ angular.module('myApp')
 .service('Gameplay', ['$http', function($http) {
   this.game = [];
 
+  this.playerInt = null;
+
   this.generateGame = function(dice, players) {
     var that = this;
 
@@ -17,11 +19,15 @@ angular.module('myApp')
     return that.game;
   }
 
-  this.makeClaim = function(playerInt, moveNumInt, moveFaceInt, claimNumInt, claimFaceInt) {  
+  this.grabPlayer = function(playerId) {
+    return this.playerInt = playerId;
+  }
+
+  this.makeClaim = function(moveNumInt, moveFaceInt, claimNumInt, claimFaceInt) {  
     var that = this;
     
     var args = { 
-      player: playerInt,
+      player: that.playerInt,
       moveNumber: moveNumInt,
       moveFace: moveFaceInt,
       claimNumber: claimNumInt,

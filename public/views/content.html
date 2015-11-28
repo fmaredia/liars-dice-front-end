@@ -6,19 +6,16 @@
   </div>
 
   <div class="div-hands">
-    <div class="button" ng-repeat="hand in game[0].playerHands track by $index" ng-click="toggle(hand, $index)">
-      Player {{$index}} 
-
-      <span ng-show="hand.show">
-       hand: {{ hand }}
-      </span>
+    <div class="button" ng-repeat="hand in game[0].playerHands track by $index" ng-click="getPlayer($index);" ui-sref="app.dash">
+     Player {{$index}}
   </div>
 
   <div class="div-actions" ng-repeat="action in game[game.length-1].actions track by $index">
+
+    GAMEPLAY
+
+    <br>
     Player {{ action.player }} claimed there are {{ action.claimNumber }} {{ action.claimFace }}'s
   </div>
-
-<br>
-
-<button class="button-primary" ui-sref="app.dash">dash</button>
+  
 </div>

@@ -1,25 +1,17 @@
+Player {{ currentPlayer }} 's Dash <br>
+Player's hand: {{ currentHand }} <br>
+
 <div>
-  <input type="number" placeholder="player int" ng-model="playerId"></input>
   <input type="number" placeholder="move number" ng-model="moveNum"></input>
   <input type="number" placeholder="move face" ng-model="moveFace"></input>
   <input type="number" placeholder="claim number" ng-model="claimNum"></input>
   <input type="number" placeholder="claim face" ng-model="claimFace"></input>
-  <!-- <button ng-click="claim(playerId, moveNum, moveFace, claimNum, claimFace)">Claim</button> -->
-  <button ng-click="claim(1,1,1,1,1)">Claim</button>
+  <button ng-click="claim(moveNum, moveFace, claimNum, claimFace)" ui-sref='app'>Claim</button>
 </div>
 
 <div>
   <input type="number" placeholder="challenge player # ..." ng-model="playerInt"></input>
-  <button ng-click="challengeMove(playerInt)">Challenge</button>
-</div>
-
-<div class="div-hands">
-  <div class="button" ng-repeat="hand in game[0].playerHands track by $index" ng-click="toggle(hand, $index)">
-    Player {{$index}} 
-
-    <span ng-show="hand.show">
-     hand: {{ hand }}
-    </span>
+  <button ng-click="challengeMove(playerInt)" ui-sref='app'>Challenge</button>
 </div>
 
 <br>
