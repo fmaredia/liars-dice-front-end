@@ -27,11 +27,11 @@ angular.module('myApp')
     var that = this;
     
     var args = { 
-      player: that.playerInt,
-      moveNumber: moveNumInt,
-      moveFace: moveFaceInt,
-      claimNumber: claimNumInt,
-      claimFace: claimFaceInt
+      'player': that.playerInt,
+      'moveNumber': moveNumInt,
+      'moveFace': moveFaceInt,
+      'claimNumber': claimNumInt,
+      'claimFace': claimFaceInt
     }
 
     $http.post('/games/' + that.game[0]._id + '/claim', args)
@@ -43,5 +43,20 @@ angular.module('myApp')
     });
 
     return that.game;
+  }
+
+  this.challenge = function(challengedInt) {  
+    var that = this;
+    var bool = null;
+
+    $http.post('/games/' + that.game[0]._id + '/challenge', { 'player': challengedInt })
+    .success(function(data, status, headers, config) {
+      bool = data;
+    })
+    .error(function(data, status, headers, config) {
+      console.log('error');
+    });
+
+    return bool;
   }
 }]);
