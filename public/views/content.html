@@ -1,21 +1,19 @@
 <div ui-view autoscroll='false'>
+ <!-- Input fields for generating a game -->
   <div class="div-newgame">
     <input type="number" placeholder="# of Dice?" ng-model="diceInput"></input>
     <input type="number" placeholder="# of Players?" ng-model="playerInput"></input>
     <button class="button-primary" ng-click="createGame(diceInput, playerInput)">Play</button>
   </div>
 
-  <div class="div-hands">
-    <div class="button" ng-repeat="hand in game[0].playerHands track by $index" ng-click="getPlayer($index);" ui-sref="app.dash">
+  <!-- Buttons that lead to each player's dashboard -->
+  <div class="div-players">
+    <div class="button" ng-repeat="player in game[0].playerHands track by $index" ng-click="getPlayer($index);" ui-sref="app.dash">
      Player {{$index}}
   </div>
 
+  <!-- Gameplay action log -->
   <div class="div-actions" ng-repeat="action in game[game.length-1].actions track by $index">
-
-    GAMEPLAY
-
-    <br>
     Player {{ action.player }} claimed there are {{ action.claimNumber }} {{ action.claimFace }}'s
   </div>
-  
 </div>

@@ -1,6 +1,8 @@
+<!-- User dashboard view -->
 <h4>Player Dashboard</h4>
 <h5>Player {{ currentPlayer }}'s current dice hand is {{ currentHand }}</h5>
 
+<!-- Input fields for making claim -->
 <div>
   <input type="number" placeholder="move number" ng-model="moveNum"></input>
   <input type="number" placeholder="move face" ng-model="moveFace"></input>
@@ -9,10 +11,12 @@
   <button ng-click="claim(moveNum, moveFace, claimNum, claimFace)" ui-sref='app'>Claim</button>
 </div>
 
+<!-- Input field for challenging another player -->
 <div>
   <input type="number" placeholder="challenge player # ..." ng-model="challengedInt"></input>
   <button ng-click="challenge(challengedInt)" ui-sref='app'>Challenge</button>
 </div>
 
+<!-- Return to game -->
 <br>
 <button class="button-primary" ui-sref='app'>Back to Game</div>

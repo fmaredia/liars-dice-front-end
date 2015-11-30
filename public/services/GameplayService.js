@@ -5,6 +5,7 @@ angular.module('myApp')
 
   this.playerInt = null;
 
+  // grabs game data and stores it in this.game array
   this.generateGame = function(dice, players) {
     var that = this;
 
@@ -18,11 +19,13 @@ angular.module('myApp')
 
     return that.game;
   }
-
+  
+  // grabs playerId argument and stores it as this.playerInt in the service
   this.grabPlayer = function(playerId) {
     return this.playerInt = playerId;
   }
-
+  
+  // grabs user claim data and stores it in this.game array
   this.makeClaim = function(moveNumInt, moveFaceInt, claimNumInt, claimFaceInt) {  
     var that = this;
     
@@ -44,7 +47,8 @@ angular.module('myApp')
 
     return that.game;
   }
-
+  
+  // returns a boolean for whether the user's challenge is right or not
   this.challenge = function(challengedInt) {  
     var that = this;
     var bool = null;
